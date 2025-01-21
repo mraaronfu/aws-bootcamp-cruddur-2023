@@ -67,7 +67,7 @@ tracer = trace.get_tracer(__name__)
 app = Flask(__name__)
 
 # X-ray ------------------
-XRayMiddleware(app, xray_recorder)
+#XRayMiddleware(app, xray_recorder)
 
 # HoneComb ---------
 # Initialize automatic instrumentation with Flask
