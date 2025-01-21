@@ -59,8 +59,8 @@ xray_recorder.configure(service='backend-flask', dynamic_naming=xray_url)
 
 #OTEL-------------
 # Show this in logs within in the backend-flask app Standardout 
-simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
-provider.add_span_processor(simple_processor)
+#simple_processor = SimpleSpanProcessor(ConsoleSpanExporter())
+#provider.add_span_processor(simple_processor)
 trace.set_tracer_provider(provider)
 tracer = trace.get_tracer(__name__)
 
@@ -93,10 +93,9 @@ cors = CORS(
 #    LOGGER.error('%s %s %s %s %s %s', timestamp, request.remote_addr, request.method, request.scheme, request.full_path, response.status)
 #    return response
 
-'''
 # Rollebar
 rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
-@app.before_first_request
+#@app.before_first_request
 def init_rollbar():
     """init rollbar module"""
     rollbar.init(
@@ -116,7 +115,7 @@ def init_rollbar():
 def rollbar_test():
     rollbar.report_message('Hello World!', 'warning')
     return "Hello World!"
-'''
+
 @app.route("/api/message_groups", methods=['GET'])
 def data_message_groups():
   user_handle  = 'andrewbrown'
